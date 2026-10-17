@@ -1,13 +1,40 @@
 [project]
-name = "stock"
+dependencies = [
+    # Core Stack
+
+    ## Data Manipulation & Loading
+    "numpy",
+    "pandas",
+
+    ## Market Data Ingestion
+    "yfinance",
+
+    ## Technical Indicators
+    "ta"
+
+    ## Machine Learning & Time Series
+    "scikit-learn",     # Preprocessing, scaling, and baseline models
+    "xgboost",          # Gradient boosting (strong for tabular/lagged time series)
+    "lightgbm",         # Fast gradient boosting alternative
+    "statsmodels",      # ARIMA, SARIMA, and statistical tests (ADF test)
+
+    ## Data Visualization
+    "matplotlib",
+    "plotly",           # Interactive candlestick and price charts
+    "mplfinance",       # Dedicated financial charting
+    ]name = "stock"
 version = "0.1.0"
 description = "Stock Prediction Model"
 readme = "README.md"
 authors = [
-    { name = "Rushabh Patil", email = "rushabhpatil3407@gmail.com" },
-    { name = "Kedar Shikhare", email = "kedarshikhare27@gmail.com" }
+  { name = "Rushabh Patil", email = "rushabhpatil3407@gmail.com" },
+  { name = "Kedar Shikhare", email = "kedarshikhare27@gmail.com" },
 ]
 requires-python = ">=3.14"
-dependencies = []
 
-
+[project.optional-dependencies]
+dev = [
+  "ipykernel>=6.29.0",
+  "jupyterlab>=4.2.0",
+  "python-dotenv>=1.0.1", # For managing API keys safely
+]
